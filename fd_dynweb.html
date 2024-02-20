@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Company</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0;
+			
+        }
+		
+
+        header {
+            background-color: powderblue;
+			margin:20px;	
+            padding: 20px;
+            text-align: center;
+			font-family:"Times New Roman";
+			font-size:20px;
+			background-image:url('https://images.app.goo.gl/X3BKCgN9cS5to7Sp8');
+			background-size:cover;
+			
+        }
+
+        nav ul {
+			background-color:green;
+			font-family:"Calibri";
+            list-style-type: none;
+            padding: 10px;
+			margin:0;
+            text-align: center;
+        }
+
+        nav ul li {
+			background-color:gray;
+            display: inline;
+            margin-right: 80px;
+			padding:15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Food Delivery Company</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" id="home-link">Home</a></li>
+            <li><a href="#" id="menu-link">Menu</a></li>
+            <li><a href="#" id="order-link">Order</a></li>
+            <li><a href="#" id="contact-link">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="content"></div>
+    <footer>
+        <p>&copy; 2024 Food Delivery Company</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const homeLink = document.getElementById("home-link");
+            const menuLink = document.getElementById("menu-link");
+            const aboutLink = document.getElementById("order-link");
+            const contactLink = document.getElementById("contact-link");
+            const contentDiv = document.getElementById("content");
+
+            // Load home page content by default
+            loadPageContent("home");
+
+            homeLink.addEventListener("click", function() {
+                loadPageContent("home");
+            });
+
+            menuLink.addEventListener("click", function() {
+                loadPageContent("menu");
+            });
+
+            aboutLink.addEventListener("click", function() {
+                loadPageContent("order");
+            });
+
+            contactLink.addEventListener("click", function() {
+                loadPageContent("contact");
+            });
+
+            function loadPageContent(page) {
+                // Simulate loading content from server
+                const content = {
+                    home: "<h2>Welcome to our food delivery service!</h2><p>Explore our menu and place your order online.<h4>About Us</h4><p>We are a leading food delivery company committed to providing high-quality and delicious meals to our customers.</p></p>",
+                    menu: "<h2>Our Menu</h2><p>Here are some delicious items from our menu:</p><ul><li>Pizza</li><li>Burger</li><li>Pasta</li></ul>",
+                    order: "<h2>Order</h2><p>We are a leading food delivery company committed to providing high-quality and delicious meals to our customers.</p>",
+                    contact: "<h2>Contact Us</h2><p>Reach out to us at: info@fooddelivery.com</p>"
+                };
+
+                contentDiv.innerHTML = content[page];
+            }
+        });
+    </script>
+</body>
+</html>
