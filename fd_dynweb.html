@@ -7,38 +7,35 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0px;
+            margin: 0;
             padding: 0;
-			
         }
-		
 
         header {
             background-color: powderblue;
-			margin:20px;	
+            margin: 20px;
             padding: 20px;
             text-align: center;
-			font-family:"Times New Roman";
-			font-size:20px;
-			background-image:url('https://images.app.goo.gl/X3BKCgN9cS5to7Sp8');
-			background-size:cover;
-			
+            font-family: "Times New Roman";
+            font-size: 20px;
+            background-image: url('https://images.app.goo.gl/X3BKCgN9cS5to7Sp8');
+            background-size: cover;
         }
 
         nav ul {
-			background-color:green;
-			font-family:"Calibri";
+            background-color: green;
+            font-family: "Calibri";
             list-style-type: none;
             padding: 10px;
-			margin:0;
+            margin: 0;
             text-align: center;
         }
 
         nav ul li {
-			background-color:gray;
+            background-color: gray;
             display: inline;
             margin-right: 80px;
-			padding:15px;
+            padding: 15px;
         }
 
         footer {
@@ -46,6 +43,39 @@
             color: #fff;
             text-align: center;
             padding: 20px;
+        }
+
+        .menu-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .menu-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item-name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .menu-item-description {
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .menu-item-price {
+            margin-top: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -69,7 +99,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const homeLink = document.getElementById("home-link");
             const menuLink = document.getElementById("menu-link");
-            const aboutLink = document.getElementById("order-link");
+            const orderLink = document.getElementById("order-link");
             const contactLink = document.getElementById("contact-link");
             const contentDiv = document.getElementById("content");
 
@@ -84,7 +114,7 @@
                 loadPageContent("menu");
             });
 
-            aboutLink.addEventListener("click", function() {
+            orderLink.addEventListener("click", function() {
                 loadPageContent("order");
             });
 
@@ -93,11 +123,10 @@
             });
 
             function loadPageContent(page) {
-                // Simulate loading content from server
                 const content = {
-                    home: "<h2>Welcome to our food delivery service!</h2><p>Explore our menu and place your order online.<h4>About Us</h4><p>We are a leading food delivery company committed to providing high-quality and delicious meals to our customers.</p></p>",
-                    menu: "<h2>Our Menu</h2><p>Here are some delicious items from our menu:</p><ul><li>Pizza<a href="pizza.jpeg></a></li><li>Burger<a href="burger.jpeg></a></li><li>Pasta<a href="pasta.jpeg></a></li></ul>",
-                    order: "<h2>Order</h2><p>We are a leading food delivery company committed to providing high-quality and delicious meals to our customers.</p>",
+                    home: "<h2>Welcome to our food delivery service!</h2><p>Explore our menu and place your order online.</p><h4>About Us</h4><p>We are a leading food delivery company committed to providing high-quality and delicious meals to our customers.</p>",
+                    menu: '<h2>Our Menu</h2><div class="menu-item"><img src="burger.jpg" alt="Burger"><div class="menu-item-info"><div class="menu-item-name">Classic Burger</div><div class="menu-item-description">Delicious beef patty topped with fresh lettuce, tomato, and pickles, served on a toasted bun.</div><div class="menu-item-price">$8.99</div></div></div><div class="menu-item"><img src="pizza.jpg" alt="Pizza"><div class="menu-item-info"><div class="menu-item-name">Pepperoni Pizza</div><div class="menu-item-description">Thin-crust pizza topped with savory pepperoni slices and melted mozzarella cheese.</div><div class="menu-item-price">$10.99</div></div></div>',
+                    order: "<h2>Place Your Order</h2><form><label for='name'>Name:</label><input type='text' id='name' name='name' required><label for='email'>Email:</label><input type='text' id='email' name='email' required><label for='phone'>Phone:</label><input type='text' id='phone' name='phone' required><label for='quantity'>Quantity:</label><input type='number' id='quantity' name='quantity' min='1' required><button type='submit'>Place Order</button></form>",
                     contact: "<h2>Contact Us</h2><p>Reach out to us at: info@fooddelivery.com</p>"
                 };
 
